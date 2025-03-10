@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Scene from "./Scene";
+import Controls from "./Controls";
+import "./styles.css";
 
-function App() {
+export default function App() {
+  const [xPosition, setXPosition] = useState(0);
+  const [yPosition, setYPosition] = useState(0);
+  const [zPosition, setZPosition] = useState(0);
+  const [xRotation, setXRotation] = useState(0);
+  const [yRotation, setYRotation] = useState(0);
+  const [zRotation, setZRotation] = useState(0);
+  const [xScale, setXScale] = useState(1);
+  const [yScale, setYScale] = useState(1);
+  const [zScale, setZScale] = useState(1);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Scene
+        controls={{ xPosition, yPosition, zPosition, xRotation, yRotation, zRotation, xScale, yScale, zScale }}
+      />
+      <Controls
+        controls={{ xPosition, yPosition, zPosition, xRotation, yRotation, zRotation, xScale, yScale, zScale, setXPosition, setYPosition, setZPosition, setXRotation, setYRotation, setZRotation, setXScale, setYScale, setZScale }}
+      />
     </div>
   );
 }
-
-export default App;
